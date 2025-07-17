@@ -9,7 +9,7 @@ object ApiConfig {
         val client = OkHttpClient.Builder()
             .addInterceptor { chain ->
                 val request = chain.request().newBuilder()
-                    .addHeader("x-api-key", "reqres-free-v1") // Tambahkan header API key di sini
+                    .addHeader("x-api-key", "reqres-free-v1")
                     .build()
                 chain.proceed(request)
             }
@@ -17,7 +17,7 @@ object ApiConfig {
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://reqres.in/")
-            .client(client) // pasang client yang sudah diberi header
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
